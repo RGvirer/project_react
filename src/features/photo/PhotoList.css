@@ -1,0 +1,27 @@
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.photo-grid-item {
+  cursor: pointer;
+}
+
+.tooltipDetails{
+  text-align: right;
+  margin: 1.5px;
+  padding: 1.5px;
+}
+
+.modal-content{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
