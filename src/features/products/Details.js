@@ -1,4 +1,4 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import './Details.css'
 import { Box, Button, Divider, Drawer, Grid, Typography } from "@mui/material";
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
@@ -9,7 +9,6 @@ import MiniCart from "../order/MiniCart";
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
 const Details = () => {
-    const navigate = useNavigate();
     const location = useLocation();
     const dispatch = useDispatch()
     const [open, setOpen] = useState(false);
@@ -44,7 +43,7 @@ const Details = () => {
                                 <p>{product.description}</p>
                                 <p style={{ fontSize: "30px", margin: 0 }}>₪{product.price}</p>
                                 <br />
-                                {product.size != "" ? <Typography>מידות: {product.size}</Typography> : ""}
+                                <Typography>מידות: {product.size}</Typography>
                                 <br />
                                 <Divider width="95%" />
                                 <br />

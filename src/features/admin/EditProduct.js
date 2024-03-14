@@ -188,7 +188,7 @@ const EditProduct = ({ isDefaultValues }) => {
                 <img
                   srcSet={`${baseUrl}${item}`}
                   src={`${baseUrl}${item}`}
-                  alt={`Image ${index + 1}`}
+                  alt={`${index + 1}`}
                   loading="lazy"
                 />
                 <IconButton

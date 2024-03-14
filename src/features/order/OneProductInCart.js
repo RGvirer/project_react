@@ -1,8 +1,5 @@
 import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
-import { Box, Button, ButtonGroup, Link, ListItemButton, TableCell, TableRow, Typography } from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
+import { Box, Button, ButtonGroup, Link, TableCell, TableRow } from '@mui/material';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import { changeAmount, deleteProductFromCart } from './OrderSlice.js';
@@ -47,11 +44,13 @@ const OneProductInCart = ({ oneProduct, index }) => {
                     <Link style={{ cursor: "pointer" }} onClick={() => { deleteProduct(index) }}>הסרה</Link>
                     <ButtonGroup >
                         <Button
+                            sx={{ borderRadius: "1px" }}
                             onClick={() => { decAmount(index) }}>
                             < RemoveIcon />
                         </Button>
                         <Button>{oneProduct.amount}</Button>
                         <Button
+                            sx={{ borderRadius: "1px"}}
                             onClick={() => { incAmount(index) }}>
                             < AddIcon />
                         </Button>

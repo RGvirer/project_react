@@ -6,8 +6,7 @@ import PhotoList from './features/photo/PhotoList'
 import SignIn from './features/user/SignIn';
 import Details from './features/products/Details';
 import SignUp from './features/user/SignUp';
-import { Button } from '@mui/material';
-import { grey, brown, deepOrange } from '@mui/material/colors';
+import { grey } from '@mui/material/colors';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Navbar from './Navbar';
 import Cart from './features/order/Cart';

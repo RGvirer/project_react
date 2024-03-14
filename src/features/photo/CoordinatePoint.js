@@ -66,13 +66,12 @@ const CoordinatePoint = ({ one }) => {
           left: `${(detail.coordinatePoints.split(',')[0] * 95) / imageWidth}%`,
         }}>
           <Link
-            
             key={index}
             to={`/details/${detail.product._id}`}
             className={`outer-circle ${hoveredIndex === index ? 'outer-circle-hover' : ''}`}
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={handleMouseLeave}
-            onClick={(e) => {handleDetailClick(index, detail.product);{ e.stopPropagation()};}}>
+            onClick={(e) => { handleDetailClick(index, detail.product); { e.stopPropagation() }; }}>
             <div className={`inner-circle ${hoveredIndex === index ? 'inner-circle-hover' : ''}`} />
             {hoveredIndex === index && (
               <HtmlTooltip
