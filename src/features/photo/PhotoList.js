@@ -7,12 +7,10 @@ import CoordinatePoint from "./CoordinatePoint.js";
 import React from "react";
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Grid, Skeleton, Typography } from "@mui/material";
 import { addPhotoToState } from "./PhotosSlice.js";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import { addProductToCart } from "../order/OrderSlice.js";
-import { faUnderline } from "@fortawesome/free-solid-svg-icons";
-import { FormatUnderlined } from "@mui/icons-material";
 
 const PhotoList = () => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
@@ -23,8 +21,7 @@ const PhotoList = () => {
   const baseUrl = "https://storeserver-uoax.onrender.com/";
   let photosArr = useSelector(state => state.photo.photosArr);
   const navigate = useNavigate();
-  const [scrollTopLeft, setScrollTopLeft] = useState(0); // סטייט לשמירת מיקום הגלילה של החלק השמאלי
-  const [scrollTopRight, setScrollTopRight] = useState(0); // סטייט לשמירת מיקום הגלילה של החלק הימני
+  const [scrollTopLeft, setScrollTopLeft] = useState(0);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -63,9 +60,7 @@ const PhotoList = () => {
     setScrollTopLeft(e.target.scrollTop);
   };
 
-  const handleScrollRight = (e) => {
-    setScrollTopRight(e.target.scrollTop);
-  };
+
 
   return (
     <div>

@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { deleteProductsFromServer } from "./productsApi";
 import { deleteProductInState } from "./productsSlice";
 import { Link, useNavigate } from "react-router-dom";
-import { Box, Button, Drawer, ImageListItem, ImageListItemBar } from "@mui/material";
+import { Box, Button, Drawer, ImageListItem } from "@mui/material";
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import Swal from 'sweetalert2';
 import { addProductToCart } from "../order/OrderSlice";
@@ -61,7 +61,7 @@ const ListItem = ({ one }) => {
 
         </div>
         <Box sx={{ textAlign: "center" }}>
-          {role == "admin" && <>
+          {role === "admin" && <>
             <Button onClick={handleDeleteConfirmation} >מחק</Button>
             <Button onClick={() => { navigate("/edit/" + one._id) }}>ערוך</Button>
           </>}

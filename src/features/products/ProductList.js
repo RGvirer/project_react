@@ -7,7 +7,7 @@ import { Button } from "@mui/material";
 const ProductList = () => {
   const userRole = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).role : null;
 
-  const [pageNumber, setPageNumber] = useState(1);
+  const [pageNumber] = useState(1);
   const [productsArr, setProductsArr] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
