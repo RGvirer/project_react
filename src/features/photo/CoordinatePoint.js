@@ -71,7 +71,7 @@ const CoordinatePoint = ({ one }) => {
             className={`outer-circle ${hoveredIndex === index ? 'outer-circle-hover' : ''}`}
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={handleMouseLeave}
-            onClick={(e) => { handleDetailClick(index, detail.product); { e.stopPropagation() }; }}>
+            onClick={(e) => { handleDetailClick(index, detail.product);  e.stopPropagation() ; }}>
             <div className={`inner-circle ${hoveredIndex === index ? 'inner-circle-hover' : ''}`} />
             {hoveredIndex === index && (
               <HtmlTooltip
