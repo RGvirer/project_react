@@ -50,11 +50,11 @@ const ListItem = ({ one }) => {
           <Link to={`/details/${one._id}`} state={{ product: one }}>
             <ImageListItem key={one.routingToImage}>
               <img
+                onMouseEnter={(e) => { e.currentTarget.src = onMouseEnter }}
+                onMouseLeave={(e) => { e.currentTarget.src = onMouseLeave }}
                 src={"https://storeserver-uoax.onrender.com/" + one.routingToImage[0]}
                 alt={one.name}
                 style={{ width: "100%" }}
-                onMouseEnter={(e) => { e.currentTarget.src = onMouseEnter }}
-                onMouseLeave={(e) => { e.currentTarget.src = onMouseLeave }}
               />
             </ImageListItem>
           </Link>

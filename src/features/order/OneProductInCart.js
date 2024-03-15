@@ -4,11 +4,12 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import { changeAmount, deleteProductFromCart } from './OrderSlice.js';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const OneProductInCart = ({ oneProduct, index }) => {
     const dispatch = useDispatch();
     const baseUrl = "https://storeserver-uoax.onrender.com/";
+    let [onMouseEnter, setOnMouseEnter] = useState(false)
 
     useEffect(() => {
         console.log('Product Amount:', oneProduct.amount);
@@ -50,7 +51,7 @@ const OneProductInCart = ({ oneProduct, index }) => {
                         </Button>
                         <Button>{oneProduct.amount}</Button>
                         <Button
-                            sx={{ borderRadius: "1px"}}
+                            sx={{ borderRadius: "1px" }}
                             onClick={() => { incAmount(index) }}>
                             < AddIcon />
                         </Button>
@@ -59,7 +60,12 @@ const OneProductInCart = ({ oneProduct, index }) => {
                 <ListItemText style={{ textAlign: 'right' }} secondary={`₪${oneProduct.price * oneProduct.amount}`}></ListItemText>
             </TableCell>
             <TableCell component="th">
-                <img alt="תמונת המוצר" style={{ width: "100px" }} src={`${baseUrl}${oneProduct.routingToImage[0]}`} />
+                <img
+                    alt="תמונת המוצר"
+                    style={{ width: "100px", cursor: 'pointer' }}
+                    onMouseEnter={() => setOnMouseEnter(true)}
+                    onMouseLeave={() => setOnMouseEnter(false)}
+                    src={onMouseEnter ? `${baseUrl}${oneProduct.routingToImage[1]}` : `${baseUrl}${oneProduct.routingToImage[0]}`} />
             </TableCell>
         </TableRow>
     </>

@@ -15,14 +15,13 @@ const Cart = () => {
     useEffect(() => { }, [cart]);
 
     return (
-        <div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <Typography variant='h5' align='center'>עגלת קניות</Typography>
             <List>
-                {cart.length === 0 ? <h3>עגלת הקניות שלך ריקה</h3> : null}
+                {cart.length === 0 ? <Typography align='center'>עגלת הקניות שלך ריקה</Typography> : null}
                 {cart.map((oneProduct, index) => {
                     return (
                         <ListItem
-                            // style={{width:"58%",border:"1px solid",marginRight:"0px"}} 
                             key={index} >
                             <OneProductInCart oneProduct={oneProduct} index={index} />
                         </ListItem>
@@ -40,7 +39,7 @@ const Cart = () => {
                     >לתשלום
                     </Button>
                     <Button
-                        variant='outlined'
+                        variant='outlined'                   
                         onClick={() => { navigate('/products') }}
                     >המשך בקניות
                     </Button>

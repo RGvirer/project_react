@@ -18,7 +18,7 @@ const Navbar = () => {
     return (
         <AppBar position="sticky" sx={{ boxShadow: 'none', direction: 'rtl', position: 'sticky', left: 0, zIndex: 100, marginBottom: "2%" }}>
             <Link to={"/"} style={{ margin: 'auto' }}>
-                <img alt='logo' style={{ width: "70%", marginTop: "10px", marginBottom: "-15px" }} src={`https://perfectaccessories.co.il/cdn/shop/files/white.png?v=1699172240&width=140`} />
+                <img alt='logo' style={{ width: "70%", marginTop: "10px", marginBottom: "-15px" }} src={`https://storeserver-uoax.onrender.com/לוגו-removebg-preview.png`} />
             </Link>
             <Toolbar style={{ justifyContent: 'center' }}>
                 <div style={{ border: "2px solid white", padding: "1%", borderRadius: "15%" }}>{username}</div>
