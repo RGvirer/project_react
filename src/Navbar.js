@@ -16,12 +16,12 @@ const Navbar = () => {
         console.error('Error parsing user data:', error);
     }
     return (
-        <AppBar position="sticky" sx={{ boxShadow: 'none', direction: 'rtl', position: 'sticky', left: 0, zIndex: 100, marginBottom: "2%" }}>
+        <AppBar position="sticky" sx={{ boxShadow: 'none', direction: 'rtl', left: 0, zIndex: 100, marginBottom: "2%" }}>
             <Link to={"/"} style={{ margin: 'auto' }}>
-                <img alt='logo' style={{ width: "60%",marginRight:"15%" ,marginBottom:"-7%",marginTop:"-3%"}} src={`https://storeserver-uoax.onrender.com/לוגו-removebg-preview.png`} />
+                <img alt='logo' style={{ width: "60%", marginRight: "15%", marginBottom: "-7%", marginTop: "-3%" }} src={`https://storeserver-uoax.onrender.com/לוגו-removebg-preview.png`} />
             </Link>
             <Toolbar style={{ justifyContent: 'center' }}>
-                <div style={{fontSize:"13px" }}>{username}</div>
+                <div style={{ fontSize: "13px" }}>{username}</div>
                 {/* <Avatar>{username}</Avatar> */}
                 <IconButton
                     component={NavLink}
