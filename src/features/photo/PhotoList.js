@@ -102,7 +102,7 @@ const PhotoList = () => {
                 </ul>
 
                 {photosArr.length > (page - 1) * 6 && (
-                  <Button style={{ display: 'block', margin: '0 auto', marginTop: "-100px" }} onClick={() => { loadMorePhotos() }}>
+                  <Button style={{ display: 'block', margin: '0 auto'}} onClick={() => { loadMorePhotos() }}>
                     הצג 6 נוספים
                   </Button>
                 )}
