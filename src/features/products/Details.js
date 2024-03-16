@@ -70,12 +70,13 @@ const Details = () => {
                                     </Grid>
                                     {/* Accordions Grid */}
                                     <Grid sx={{ direction: "rtl" }} item xs={12} className="scrollable">
-                                        <div>
-                                            <Accordion>
+                                        <div style={{ marginBottom: "30px" }}>
+                                            <Accordion sx={{ border: "1px solid", boxShadow: "none" }}>
                                                 <AccordionSummary
                                                     expandIcon={<ExpandMoreRoundedIcon />}
                                                     aria-controls="panel1-content"
                                                     id="panel1-header"
+                                                    sx={{ fontWeight: 'bold' }}
                                                 >
                                                     משלוחים
                                                 </AccordionSummary>
@@ -85,11 +86,12 @@ const Details = () => {
                                                     <Typography>שליח עד 10 ימי עסקים</Typography>
                                                 </AccordionDetails>
                                             </Accordion>
-                                            <Accordion>
+                                            <Accordion defaultExpanded sx={{ border: "1px solid", boxShadow: "none" }}>
                                                 <AccordionSummary
                                                     expandIcon={<ExpandMoreRoundedIcon />}
                                                     aria-controls="panel2-content"
                                                     id="panel2-header"
+                                                    sx={{ fontWeight: 'bold' }}
                                                 >
                                                     החזרות וביטולים
                                                 </AccordionSummary>
@@ -101,7 +103,6 @@ const Details = () => {
                                                         יתקבלו חזרה מוצרים אך ורק מוצרים שלא ניזוקו ושלא נעשה בהם שימוש. המוצרים יוחזרו באריזתם המקורית כשהיא שלמה ונקיה.</Typography>
                                                 </AccordionDetails>
                                             </Accordion>
-                                            <div style={{height:"30vh"}}></div>
                                         </div>
                                     </Grid>
                                 </Grid>
