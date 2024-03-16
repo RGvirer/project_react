@@ -60,7 +60,11 @@ const PhotoList = () => {
     setScrollTopLeft(e.target.scrollTop);
   };
 
-
+  const loadMorePhotos = async () => {
+    if (photosArr.length > 0) {
+      setPage(page + 1);
+    }
+  };
 
   return (
     <div>
@@ -96,9 +100,14 @@ const PhotoList = () => {
                     </div>
                   ))}
                 </ul>
-                <Button style={{ display: 'block', margin: '0 auto', marginTop: "-100px" }} onClick={() => { setPage(prevPage => prevPage + 1); }}>
-                  הצג 6 נוספים
-                </Button>
+
+                {photosArr.length > (page - 1) * 6 && (
+                  <Button style={{ display: 'block', margin: '0 auto', marginTop: "-100px" }} onClick={() => { loadMorePhotos() }}>
+                    הצג 6 נוספים
+                  </Button>
+                )}
+
+
               </>
             )
           }
