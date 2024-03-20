@@ -1,7 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import { AppBar, Toolbar, IconButton } from '@mui/material';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { signOut } from './features/user/userSlice';
 import { useDispatch } from 'react-redux';
 
@@ -9,19 +9,20 @@ const Navbar = () => {
     const storedUser = localStorage.getItem('user');
     let [username, setUserName] = useState('אורח');
     const dispatch = useDispatch()
+    useEffect(() => {
+        if (storedUser) {
+            try {
+                const userData = JSON.parse(storedUser);
+                setUserName(userData.name || 'אורח');
+            } catch (error) {
+                console.error('Error parsing user data:', error);
+            }
+        }
+    }, [storedUser]);
+
     const handleSignOut = () => {
         dispatch(signOut()); // התנתקות מהסטייט
         setUserName('אורח'); // עדכון השם ל- "אורח"
-    }
-
-
-    try {
-        if (storedUser) {
-            const userData = JSON.parse(storedUser);
-            username = userData.name || username;
-        }
-    } catch (error) {
-        console.error('Error parsing user data:', error);
     }
     return (
         <AppBar position="sticky" sx={{ boxShadow: 'none', direction: 'rtl', left: 0, zIndex: 100, marginBottom: "2%" }}>
