@@ -9,6 +9,8 @@ import { useEffect, useState } from 'react';
 const OneProductInCart = ({ oneProduct, index }) => {
     const dispatch = useDispatch();
     const baseUrl = "https://storeserver-uoax.onrender.com/";
+    const productImage0 = `${baseUrl}${oneProduct.routingToImage[0]}`
+    const productImage1 = `${baseUrl}${oneProduct.routingToImage[1]}`
     let [onMouseEnter, setOnMouseEnter] = useState(false)
 
     useEffect(() => {
@@ -65,7 +67,7 @@ const OneProductInCart = ({ oneProduct, index }) => {
                     style={{ width: "100px", cursor: 'pointer' }}
                     onMouseEnter={() => setOnMouseEnter(true)}
                     onMouseLeave={() => setOnMouseEnter(false)}
-                    src={onMouseEnter ? `${baseUrl}${oneProduct.routingToImage[1]}` : `${baseUrl}${oneProduct.routingToImage[0]}`} />
+                    src={onMouseEnter ? productImage1 : productImage0} />
             </TableCell>
         </TableRow>
     </>
