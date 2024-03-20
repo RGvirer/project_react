@@ -8,7 +8,6 @@ import { useDispatch } from 'react-redux';
 const Navbar = () => {
     const storedUser = localStorage.getItem('user');
     let [username, setUserName] = useState('אורח');
-    const navigate = useNavigate()
     const dispatch = useDispatch()
     const handleSignOut = () => {
         dispatch(signOut()); // התנתקות מהסטייט
