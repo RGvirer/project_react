@@ -1,11 +1,20 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, IconButton } from '@mui/material';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
-import React from 'react';
+import React, { useState } from 'react';
+import { signOut } from './features/user/userSlice';
+import { useDispatch } from 'react-redux';
 
 const Navbar = () => {
     const storedUser = localStorage.getItem('user');
-    let username = 'אורח';
+    let [username, setUserName] = useState('אורח');
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const handleSignOut = () => {
+        dispatch(signOut()); // התנתקות מהסטייט
+        setUserName('אורח'); // עדכון השם ל- "אורח"
+    }
+
 
     try {
         if (storedUser) {
@@ -25,7 +34,8 @@ const Navbar = () => {
                 {/* <Avatar>{username}</Avatar> */}
                 <IconButton
                     component={NavLink}
-                    to="/signin"
+                    to={username === "אורח" ? "/signin" : ""}
+                    onClick={username === "אורח" ? "" : () => { handleSignOut() }}
                     size="small"
                     color="inherit"
                     sx={{
@@ -34,7 +44,7 @@ const Navbar = () => {
                         borderRadius: 0,
                         fontSize: "18px"
                     }}
-                >התחברות</IconButton>
+                >{username === "אורח" ? "התחברות" : "התנתקות"}</IconButton>
 
                 <IconButton
                     component={NavLink}

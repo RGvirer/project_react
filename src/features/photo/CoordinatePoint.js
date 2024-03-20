@@ -99,4 +99,4 @@ const CoordinatePoint = ({ one }) => {
   );
 };
 
-export default CoordinatePoint
+export default CoordinatePoint;

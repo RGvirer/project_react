@@ -2,25 +2,15 @@ import axios from "axios";
 
 const baseUrl = "https://storeserver-uoax.onrender.com";
 
-export const getProductsFromServer = (page = 1, pageSize = 10) => {
+export const getProductsFromServer = (numOfScreen = 1, productsInScreen) => {
   return axios.get(`${baseUrl}/api/products`, {
-    params: { page, pageSize }
+    params: { productsInScreen, numOfScreen }
   });
 };
 
 export const getProductByIdFromServer = (id) => {
   return axios.get(`${baseUrl}/api/products/${id}`);
 };
-// export const getPhotosFromServer = (photosInScreen, numOfScreen, textToSearch, minPrice, maxPrice) => {
-//   const params = {
-//     ...(photosInScreen && { photosInScreen }),
-//     ...(numOfScreen && { numOfScreen }),
-//     ...(textToSearch && textToSearch !== '' && { textToSearch }),
-//     ...(minPrice && { minPrice }),
-//     ...(maxPrice && { maxPrice })
-//   }; 
-//   return axios.get(`${baseUrl}/api/photos`, {params});  
-// };
 
 export const deleteProductsFromServer = (id, token) => {
   return axios.delete(`${baseUrl}/api/products/${id}`, {
