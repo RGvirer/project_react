@@ -132,7 +132,7 @@ const SignUp = () => {
           >
             {isSubmitting ? <CircularProgress /> : "הירשם"}
           </Button>
-          <Link style={{ color: "black" }} href="/signin" variant="body2">
+          <Link style={{ color: "black" }} to="/signin" variant="body2">
             יש לך כבר חשבון? היכנס
           </Link>
         </form>
