@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { TextField, Button, Box, Typography, Container, InputAdornment, IconButton, OutlinedInput, InputLabel, FormControl, Link, Grid } from "@mui/material";
+import { TextField, Button, Box, Typography, Container, InputAdornment, IconButton, OutlinedInput, InputLabel, FormControl, Grid } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { reloadUser, saveUser } from "./userSlice";
 import { signin as ApiSignIn } from "./userApi";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import CircularProgress from '@mui/material/CircularProgress';
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -102,7 +103,7 @@ const SignIn = () => {
                             {isSubmitting ? <CircularProgress /> : "כניסה"}
                         </Button>
                         <Grid item>
-                            <Link href="/signup" variant="body2">
+                            <Link to={"/signup"} variant="body2">
                                 {"אין לך חשבון? הרשמה"}
                             </Link>
                         </Grid>
