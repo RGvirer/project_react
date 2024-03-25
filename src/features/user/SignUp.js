@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, TextField, Link, Grid, Box, Typography, Container, InputAdornment, IconButton, InputLabel, FormControl, OutlinedInput } from '@mui/material';
+import { Button, TextField, Grid, Box, Typography, Container, InputAdornment, IconButton, InputLabel, FormControl, OutlinedInput } from '@mui/material';
 import { signup as ApiSignUp } from "./userApi";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -8,7 +8,7 @@ import { saveUser } from './userSlice';
 import { useForm } from 'react-hook-form';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -38,26 +38,6 @@ const SignUp = () => {
       setIsSubmitting(false);
     }
   };
-  // const onSubmit = async (data) => {
-  //   try {
-  //     setIsSubmitting(true);
-  //     const response = await ApiSignUp(data.firstName, data.lastName, data.password, data.email);
-  //     if (response && response.data) {
-
-  //       dispatch(saveUser(response.data));
-  //       alert("נכנסת בהצלחה");
-  //       console.log(response.data);
-  //       navigate('/');
-  //     } else {
-  //       console.error("Invalid response or missing data property");
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //     alert(error.response?.data || "An error occurred");
-  //   } finally {
-  //     setIsSubmitting(false);
-  //   }
-  // };
 
   return (
     <Container component="main" maxWidth="xs">
