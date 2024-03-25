@@ -25,7 +25,7 @@ const SignUp = () => {
   const onSubmit = async (data) => {
     try {
       setIsSubmitting(true);
-      const response = await ApiSignUp(data.firstName, data.lastName,"123abc", data.email);
+      const response = await ApiSignUp(data.firstName, data.lastName, "123abc", data.email);
       // const response = await signin( data.email,data.password);
       dispatch(saveUser(response.data));
       alert("נרשמת בהצלחה");
@@ -132,7 +132,7 @@ const SignUp = () => {
           >
             {isSubmitting ? <CircularProgress /> : "הירשם"}
           </Button>
-          <Link href="/signin" variant="body2">
+          <Link style={{ color: "black" }} href="/signin" variant="body2">
             יש לך כבר חשבון? היכנס
           </Link>
         </form>

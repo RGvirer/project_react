@@ -103,7 +103,7 @@ const SignIn = () => {
                             {isSubmitting ? <CircularProgress /> : "כניסה"}
                         </Button>
                         <Grid item>
-                            <Link to={"/signup"} variant="body2">
+                            <Link style={{ color: "black" }}  to={"/signup"} variant="body2">
                                 {"אין לך חשבון? הרשמה"}
                             </Link>
                         </Grid>
