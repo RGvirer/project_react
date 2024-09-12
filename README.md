@@ -29,3 +29,6 @@ Follow the steps below to set up and run the project locally.
    ```bash
    git clone https://github.com/your-username/your-repo-name.git
    cd your-repo-name
+
+## Live Demo
+[Visit the live website](https://homedesignstore.netlify.app)
