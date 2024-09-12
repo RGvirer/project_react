@@ -1,4 +1,4 @@
-# E-Commerce Website - React, MUI, Redux
+# E-Commerce Website - FrontEnd React
 
 ## Overview
 This is a frontend project for an E-Commerce website built with React, Material-UI (MUI), and Redux. The application allows users to browse through products, add items to their shopping cart, and view details of each product. 
