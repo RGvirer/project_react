@@ -30,16 +30,21 @@ Follow the steps below to set up and run the project locally.
    git clone https://github.com/your-username/your-repo-name.git
    cd your-repo-name
 
-## Live Demo
+# Live Demo
 [Visit the live website](https://homedesignstore.netlify.app)
-
+## Home
 ![home](https://github.com/user-attachments/assets/5761bd74-1804-437c-bc08-1ff0f2933349)
 ![ClickonPhoto](https://github.com/user-attachments/assets/de6853eb-2ef1-47fe-bd18-76ce5ded773d)
+## Product
 ![product](https://github.com/user-attachments/assets/ebf46efa-dbbb-4ce0-8475-28752951caf1)
 ![product2](https://github.com/user-attachments/assets/a61d516d-9be4-4f1d-be1a-be86583097ab)
+## Products
 ![allProducts](https://github.com/user-attachments/assets/dcb4de14-3dad-4b3f-8d80-3cc5308b99e1)
+## Cart
 ![shoppingCartInProductsPage](https://github.com/user-attachments/assets/0ae2bf7f-a8f1-4e77-ad53-9273ce7ee99d)
 ![ShoppingCart](https://github.com/user-attachments/assets/08d99909-ed7b-411b-928d-cf670e7b7337)
+## SignIn
 ![login](https://github.com/user-attachments/assets/6d2fedb0-ebec-4f61-92d2-690ab1daf40f)
+## SignUp
 ![signup](https://github.com/user-attachments/assets/b11175e6-8f0b-4e09-931a-235a61833875)
 
