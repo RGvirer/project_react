@@ -1,13 +1,27 @@
-import { useState, useEffect } from 'react';
-import { Box, Button, FormControl, IconButton, ImageList, ImageListItem, InputLabel, OutlinedInput, Typography } from '@mui/material';
-import { useNavigate, useParams } from 'react-router-dom';
-import { addProductsToServer, getProductByIdFromServer, updateProductByIdInServer } from '../products/productsApi.js';
-import { useDispatch } from 'react-redux';
-import { saveAllFromServer } from '../products/productsSlice.js';
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-import styled from 'styled-components';
-import { useForm } from 'react-hook-form';
+import { useState, useEffect } from "react";
+import {
+  Box,
+  Button,
+  FormControl,
+  IconButton,
+  ImageList,
+  ImageListItem,
+  InputLabel,
+  OutlinedInput,
+  Typography,
+} from "@mui/material";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  addProductsToServer,
+  getProductByIdFromServer,
+  updateProductByIdInServer,
+} from "../products/productsApi.js";
+import { useDispatch } from "react-redux";
+import { saveAllFromServer } from "../products/productsSlice.js";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import styled from "styled-components";
+import { useForm } from "react-hook-form";
 
 const EditProduct = ({ isDefaultValues }) => {
   const { id } = useParams();
@@ -26,15 +40,15 @@ const EditProduct = ({ isDefaultValues }) => {
   const navigate = useNavigate();
   const baseUrl = "https://storeserver-uoax.onrender.com/";
 
-  const VisuallyHiddenInput = styled('input')({
-    clip: 'rect(0 0 0 0)',
-    clipPath: 'inset(50%)',
+  const VisuallyHiddenInput = styled("input")({
+    clip: "rect(0 0 0 0)",
+    clipPath: "inset(50%)",
     height: 1,
-    overflow: 'hidden',
-    position: 'absolute',
+    overflow: "hidden",
+    position: "absolute",
     bottom: 0,
     left: 0,
-    whiteSpace: 'nowrap',
+    whiteSpace: "nowrap",
     width: 1,
   });
 
@@ -47,23 +61,37 @@ const EditProduct = ({ isDefaultValues }) => {
     setIsDirty(true);
   };
 
+  const handleDeleteImage = (index) => {
+    // העתק את רשימת התמונות הקיימת
+    const updatedImages = [...product.routingToImage];
+
+    // הסר את התמונה על ידי index
+    updatedImages.splice(index, 1);
+
+    // עדכן את ה-state של המוצר
+    setProduct((prevProduct) => ({
+      ...prevProduct,
+      routingToImage: updatedImages,
+    }));
+    setIsDirty(true);
+  };
 
   const handleUpdateProduct = async () => {
     try {
-      const userToken = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).token : null;
+      const userToken = localStorage.getItem("user")
+        ? JSON.parse(localStorage.getItem("user")).token
+        : null;
       if (isDefaultValues) {
         await updateProductByIdInServer(id, product, userToken);
-      }
-      else {
+      } else {
         await addProductsToServer(product, userToken);
       }
       dispatch(saveAllFromServer());
       alert("הנתונים התעדכנו");
       setIsDirty(false);
-      navigate('/products');
-    }
-    catch (error) {
-      console.error('Error updating product:', error);
+      navigate("/products");
+    } catch (error) {
+      console.error("Error updating product:", error);
       if (error.response && error.response.data) {
         alert(error.response.data);
       } else {
@@ -71,8 +99,6 @@ const EditProduct = ({ isDefaultValues }) => {
       }
     }
   };
-
-
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -84,8 +110,8 @@ const EditProduct = ({ isDefaultValues }) => {
           setProduct(data);
         }
       } catch (error) {
-        console.error('Error fetching product:', error);
-        setError('לא נמצא מידע על מוצר כזה');
+        console.error("Error fetching product:", error);
+        setError("לא נמצא מידע על מוצר כזה");
       } finally {
         setLoading(false);
       }
@@ -108,12 +134,14 @@ const EditProduct = ({ isDefaultValues }) => {
 
   return (
     <>
-      <Typography variant="h5" sx={{ marginBottom: "-3%" }} align='center'>{isDefaultValues ? "עריכת מוצר" : "הוספת מוצר"}</Typography>
+      <Typography variant="h5" sx={{ marginBottom: "-3%" }} align="center">
+        {isDefaultValues ? "עריכת מוצר" : "הוספת מוצר"}
+      </Typography>
       <Box style={{ margin: "3%", border: "3px solid", padding: "1%" }}>
         <Box
           component="form"
           sx={{
-            '& > :not(style)': { m: 1 },
+            "& > :not(style)": { m: 1 },
             direction: "rtl",
           }}
           noValidate
@@ -123,7 +151,7 @@ const EditProduct = ({ isDefaultValues }) => {
         >
           <div>
             <div>
-              <FormControl style={{ marginBottom: '10px' }}>
+              <FormControl style={{ marginBottom: "10px" }}>
                 <InputLabel htmlFor="name">שם</InputLabel>
                 <OutlinedInput
                   style={{ width: "30vw" }}
@@ -137,7 +165,7 @@ const EditProduct = ({ isDefaultValues }) => {
             </div>
 
             <div>
-              <FormControl style={{ marginBottom: '10px' }}>
+              <FormControl style={{ marginBottom: "10px" }}>
                 <InputLabel htmlFor="description">תאור</InputLabel>
                 <OutlinedInput
                   style={{ width: "30vw" }}
@@ -152,7 +180,7 @@ const EditProduct = ({ isDefaultValues }) => {
             </div>
 
             <div>
-              <FormControl style={{ marginBottom: '10px' }}>
+              <FormControl style={{ marginBottom: "10px" }}>
                 <InputLabel htmlFor="price">מחיר</InputLabel>
                 <OutlinedInput
                   {...register("password", { required: "שדה חובה" })}
@@ -168,7 +196,7 @@ const EditProduct = ({ isDefaultValues }) => {
             </div>
 
             <div>
-              <FormControl style={{ marginBottom: '10px' }}>
+              <FormControl style={{ marginBottom: "10px" }}>
                 <InputLabel htmlFor="details">פרטים</InputLabel>
                 <OutlinedInput
                   style={{ width: "30vw" }}
@@ -193,16 +221,16 @@ const EditProduct = ({ isDefaultValues }) => {
                 />
                 <IconButton
                   style={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                    borderRadius: '50%',
-                    padding: '4px',
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    backgroundColor: "rgba(255, 255, 255, 0.8)",
+                    borderRadius: "50%",
+                    padding: "4px",
                   }}
                 >
-                  <CloseRoundedIcon />
+                  <CloseRoundedIcon onClick={() => handleDeleteImage(index)} />
                 </IconButton>
               </ImageListItem>
             ))}
@@ -218,7 +246,14 @@ const EditProduct = ({ isDefaultValues }) => {
             </Button>
           </ImageList>
         </Box>
-        <Button disabled={!isDirty} variant="contained" color="primary" onClick={handleUpdateProduct}>{isDefaultValues ? "עדכן מוצר" : "הוסף מוצר"}</Button>
+        <Button
+          disabled={!isDirty}
+          variant="contained"
+          color="primary"
+          onClick={handleUpdateProduct}
+        >
+          {isDefaultValues ? "עדכן מוצר" : "הוסף מוצר"}
+        </Button>
       </Box>
     </>
   );
