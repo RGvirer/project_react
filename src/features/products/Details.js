@@ -62,7 +62,7 @@ const Details = () => {
                                             {product.routingToImage.map((imageName) => (
                                                 <li key={imageName._id} style={{ width: "100%" }}>
                                                     <a href={`${baseUrl}${imageName}`} target="_blank" rel="noreferrer" style={{ width: "100%" }}>
-                                                        <img className="images" style={{ width: "100%" }} src={`${baseUrl}${imageName}`} alt={imageName} />
+                                                        <img className="images" style={{ width: "100%" }} src={`${baseUrl}${imageName}`} alt={imageName} loading="lazy"/>
                                                     </a>
                                                 </li>
                                             ))}

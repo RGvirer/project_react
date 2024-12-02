@@ -47,6 +47,7 @@ const CoordinatePoint = ({ one }) => {
   return (
     <div style={{ position: 'relative', display: 'block', width: '100%', height: 'auto' }}>
       <img
+        loading="lazy"
         src={`${baseUrl}${one.routingToImage}`}
         alt={one.description}
         style={{

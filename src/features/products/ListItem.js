@@ -50,6 +50,7 @@ const ListItem = ({ one }) => {
           <Link to={`/details/${one._id}`} state={{ product: one }}>
             <ImageListItem key={one.routingToImage}>
               <img
+                loading="lazy"
                 onMouseEnter={(e) => { e.currentTarget.src = onMouseEnter }}
                 onMouseLeave={(e) => { e.currentTarget.src = onMouseLeave }}
                 src={"https://storeserver-uoax.onrender.com/" + one.routingToImage[0]}
