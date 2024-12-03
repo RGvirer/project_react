@@ -234,13 +234,12 @@ const EditProduct = ({ isDefaultValues }) => {
                   src={
                     item.startsWith("data:image/") ? item : `${baseUrl}${item}`
                   } // בדוק אם זו תמונה שהועלתה על ידי המשתמש
-                  alt={`Image ${index + 1}`}
+                  alt={` ${index + 1}`}
                   loading="lazy"
                 />
                 <IconButton
                   style={{
                     position: "absolute",
-                    top: "5%",
                     right: "5%",
                     top: "50%",
                     left: "50%",
