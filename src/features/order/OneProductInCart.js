@@ -63,6 +63,7 @@ const OneProductInCart = ({ oneProduct, index }) => {
             </TableCell>
             <TableCell component="th">
                 <img
+                    loading="lazy"
                     alt="תמונת המוצר"
                     style={{ width: "100px", cursor: 'pointer' }}
                     onMouseEnter={() => setOnMouseEnter(true)}

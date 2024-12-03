@@ -29,3 +29,14 @@ export const updateProductByIdInServer = (id, product, token) => {
     headers: { "x-access-token": token },
   });
 };
+// export const uploadImageToServer = (file, token) => {
+//   const formData = new FormData();
+//   formData.append('image', file);
+
+//   return axios.post(`${baseUrl}/api/products/upload-image`, formData, {
+//     headers: {
+//       "x-access-token": token,
+//       "Content-Type": "multipart/form-data",
+//     },
+//   });
+//   };

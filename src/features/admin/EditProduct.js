@@ -52,6 +52,23 @@ const EditProduct = ({ isDefaultValues }) => {
     width: 1,
   });
 
+  const handleImageUpload = (event) => {
+    const files = Array.from(event.target.files);
+
+    files.forEach((file) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        console.log("Image uploaded: ", reader.result); // בדוק מה התוצאה של קריאת הקובץ
+        setProduct((prevProduct) => ({
+          ...prevProduct,
+          routingToImage: [...prevProduct.routingToImage, reader.result], // הוסף את התמונה החדשה
+        }));
+        setIsDirty(true);
+      };
+      reader.readAsDataURL(file); // קרא את הקובץ כ-Data URL
+    });
+  };
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setProduct((prevProduct) => ({
@@ -212,16 +229,19 @@ const EditProduct = ({ isDefaultValues }) => {
           </div>
           <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
             {product.routingToImage.map((item, index) => (
-              <ImageListItem key={item}>
+              <ImageListItem key={index}>
                 <img
-                  srcSet={`${baseUrl}${item}`}
-                  src={`${baseUrl}${item}`}
-                  alt={`${index + 1}`}
+                  src={
+                    item.startsWith("data:image/") ? item : `${baseUrl}${item}`
+                  } // בדוק אם זו תמונה שהועלתה על ידי המשתמש
+                  alt={`Image ${index + 1}`}
                   loading="lazy"
                 />
                 <IconButton
                   style={{
                     position: "absolute",
+                    top: "5%",
+                    right: "5%",
                     top: "50%",
                     left: "50%",
                     transform: "translate(-50%, -50%)",
@@ -236,13 +256,11 @@ const EditProduct = ({ isDefaultValues }) => {
             ))}
             <Button
               component="label"
-              role={undefined}
               variant="contained"
-              tabIndex={-1}
               startIcon={<CloudUploadIcon />}
             >
               Upload file
-              <VisuallyHiddenInput type="file" />
+              <VisuallyHiddenInput type="file" onChange={handleImageUpload} />
             </Button>
           </ImageList>
         </Box>

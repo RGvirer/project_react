@@ -196,6 +196,7 @@ const PhotoList = () => {
                       }}
                     >
                       <img
+                        loading="lazy"
                         alt={detail.product.name}
                         onClick={() => openDetails(detail.product)}
                         src={`${baseUrl}${detail.product.routingToImage[0]}`}
