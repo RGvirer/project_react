@@ -10,7 +10,7 @@ import { grey } from '@mui/material/colors';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Navbar from './Navbar';
 import Cart from './features/order/Cart';
-
+import Chat from "./features/chat/chat.jsx";
 function App() {
   const userRole = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).role : null;
 
@@ -36,6 +36,7 @@ function App() {
   return (<>
     <ThemeProvider theme={theme}>
       <Navbar />
+      <Chat />
       <Routes>
         <Route path='/' element={<PhotoList />} />
         <Route path='/products' element={<ProductList />} />
